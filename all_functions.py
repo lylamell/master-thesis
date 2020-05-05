@@ -14,7 +14,7 @@ Lotta Ylä-Mella 5.5.2020
 import numpy as np
 
 
-def forward2(isotope, time_ice, time_degla ,block_erosion, const_erosion):  
+def forward(isotope, time_ice, time_degla ,block_erosion, const_erosion):  
     '''
     Function to calculate nuclide concentration with depth.
     
@@ -327,7 +327,7 @@ def inverse(z_chosen, z_error, isotope, time_ice_fwd, time_degla_fwd, erosion_fw
     block_erosion_fwd = erosion_fwd
     
     # Forward solution
-    N_orig, z_orig = forward2(isotope, time_ice_fwd, time_degla_fwd ,
+    N_orig, z_orig = forward(isotope, time_ice_fwd, time_degla_fwd ,
                               block_erosion_fwd, const_erosion)
     
     # Sample depth and errors
@@ -374,7 +374,7 @@ def inverse(z_chosen, z_error, isotope, time_ice_fwd, time_degla_fwd, erosion_fw
     
     
     # Calculate solution with the inverse times
-    N_comp, z_comp = forward2(isotope, time_ice_inv, time_degla_inv ,
+    N_comp, z_comp = forward(isotope, time_ice_inv, time_degla_inv ,
                               block_erosion, const_erosion)
 
     # Temporary lists for misfit values
